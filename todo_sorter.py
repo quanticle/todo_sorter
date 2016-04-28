@@ -7,7 +7,7 @@ def read_file(filename):
     file_handle = open(filename)
     todo_entries = []
     for line in file_handle:
-        todo_entry = parse_line(line)
+        todo_entry = parse_line(line.strip())
         todo_entries.append(todo_entry)
     todo_entries.sort(key = lambda entry: entry[0])
     return todo_entries
@@ -20,7 +20,7 @@ def parse_line(todo_line):
 def write_file(filename, todo_entries):
     file_handle = open(filename, 'w')
     for entry in todo_entries:
-        file_handle.write(entry[1])
+        file_handle.write(entry[1] + "\n")
     file_handle.flush()
     file_handle.close()
 
