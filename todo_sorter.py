@@ -13,7 +13,7 @@ def read_file(filename):
     return todo_entries
 
 def parse_line(todo_line):
-    compiled_regex = re.compile(r'(?P<due_date>due:\d{4}-\d{2}-\d{2})')
+    compiled_regex = re.compile(r'(?P<due_date>d:\d{4}-\d{2}-\d{2})')
     due_date = re.findall(compiled_regex, todo_line)[0]
     return (due_date, todo_line)
 
